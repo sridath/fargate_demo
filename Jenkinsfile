@@ -8,6 +8,9 @@ node {
         
         sh 'aws eks --region us-east-2 update-kubeconfig --name eks-fargate-ex'
         sh '/home/ubuntu/bin/kubectl get nodes'
+        echo "deploying in eks worker node"
+
+        sh '/home/ubuntu/bin/kubectl apply -f namespace.yaml -f deployment.yaml -f service.yaml -f ingress.yaml'
         userInput = input(id: 'Proceed1', message: 'Deploy in fargate?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this']])
         echo 'userInput: ' + userInput
 
@@ -19,13 +22,7 @@ node {
             
             
             
-            } else {
-                // not do action
-                echo "deploying in eks worker node"
-
-                sh '/home/ubuntu/bin/kubectl apply -f namespace.yaml -f deployment.yaml -f service.yaml -f ingress.yaml'
-            }
-
+            } 
         }
 
          
