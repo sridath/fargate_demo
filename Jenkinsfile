@@ -6,7 +6,7 @@ node {
 
         if(userInput == true) {
             echo "Action was approved"
-            sh 'kubectl get nodes'
+            sh '/home/ubuntu/bin/kubectl get nodes'
 
             } else {
                 // not do action
