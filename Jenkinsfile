@@ -8,7 +8,7 @@ node {
         
         sh 'aws eks --region us-east-2 update-kubeconfig --name eks-fargate-ex'
         sh '/home/ubuntu/bin/kubectl get nodes'
-        userInput = input(id: 'Proceed1', message: 'Promote build?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this']])
+        userInput = input(id: 'Proceed1', message: 'Deploy in fargate?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this']])
         echo 'userInput: ' + userInput
 
         if(userInput == true) {
