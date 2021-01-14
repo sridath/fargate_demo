@@ -6,7 +6,7 @@ node {
     stage('Preparation') { // for display purposes
         withAWS(credentials: 'aws-key', region: 'us-east-2') {
         
-        sh 'aws eks --region us-east-2 update-kubeconfig --name fargate-demo'
+        sh 'aws eks --region us-east-2 update-kubeconfig --name eks-fargate-ex'
         sh '/home/ubuntu/bin/kubectl get nodes'
         userInput = input(id: 'Proceed1', message: 'Promote build?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this']])
         echo 'userInput: ' + userInput
