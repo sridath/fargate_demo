@@ -6,6 +6,7 @@ node {
 
         if(userInput == true) {
             echo "Action was approved"
+            sh 'aws eks --region us-east-2 update-kubeconfig --name fargate-poc'
             sh '/home/ubuntu/bin/kubectl get nodes'
 
             } else {
