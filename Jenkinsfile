@@ -11,7 +11,8 @@ node {
             echo "Action was approved"
             sh 'aws eks --region us-east-2 update-kubeconfig --name fargate-poc'
             sh '/home/ubuntu/bin/kubectl get nodes'
-
+            sh '/home/ubuntu/bin/kubectl apply -f namespace.yaml -f deployment.yaml -f service.yaml -f ingress.yaml'
+            
             } else {
                 // not do action
                 echo "Action was aborted."
