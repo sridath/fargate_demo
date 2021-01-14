@@ -1,5 +1,8 @@
 node {
     def userInput = false
+    stage('git clone'){
+        checkout scm
+    }
     stage('Preparation') { // for display purposes
         withAWS(credentials: 'aws-key', region: 'us-east-2') {
         
