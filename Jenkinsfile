@@ -14,6 +14,8 @@ node {
         if(userInput == true) {
             echo "deploying with fargate profile"
             sh '/home/ubuntu/bin/kubectl apply -f fargate.yaml'
+            sh '/home/ubuntu/bin/kubectl get -f fargate.yaml'
+            
             
             
             
