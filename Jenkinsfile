@@ -1,5 +1,8 @@
 node {
     def userInput = false
+    withAWS(credentials: 'aws-key', region: 'us-east-2') {
+    sh 'aws iam get-user'
+}
     stage('Preparation') { // for display purposes
         withCredentials([[$class: 'com.cloudbees.plugins.credentials.common.StandardUsernamePasswordCredentials', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
         
