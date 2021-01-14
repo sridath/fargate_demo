@@ -13,7 +13,7 @@ node {
 
         if(userInput == true) {
             echo "deploying with fargate profile"
-            sh '/home/ubuntu/bin/kubectl apply -f namespace.yaml -f deployment.yaml -f service.yaml -f ingress.yaml'
+            sh '/home/ubuntu/bin/kubectl apply -f fargate.yaml'
             
             
             
